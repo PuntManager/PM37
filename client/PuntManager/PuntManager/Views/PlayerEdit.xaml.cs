@@ -21,12 +21,6 @@ namespace PuntManager.Views
         public PlayerEdit() 
         {
             InitializeComponent();
-            List<Boolean> FirstTimePlayerList = new List<Boolean>
-            { 
-                "False",
-                "True"
-            }; 
-            picker_firsttimeplayer.ItemsSource = FirstTimePlayerList;
             datepicker_added.MaximumDate = DateTime.Today;
         } 
 
@@ -49,6 +43,7 @@ namespace PuntManager.Views
         {
             button_save.IsEnabled = true
                 && !string.IsNullOrWhiteSpace(entry_casinoplayerid.Text)
+                && !string.IsNullOrWhiteSpace(entry_firsttimeplayer.Text)
                 && !string.IsNullOrWhiteSpace(entry_fullname.Text);
 
             if(_viewModel.Editing)

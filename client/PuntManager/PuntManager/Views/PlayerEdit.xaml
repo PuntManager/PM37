@@ -31,14 +31,14 @@
                                Placeholder="casinoplayerid"   TextChanged="DataChanged_Handler"/>
                     </StackLayout>
                     <StackLayout>
+                        <Label Text="FirstTimePlayer"/>
+                        <Entry x:Name="entry_firsttimeplayer" Text="{Binding Player.FirstTimePlayer, Mode=TwoWay}"
+                               Placeholder="firsttimeplayer"   TextChanged="DataChanged_Handler"/>
+                    </StackLayout>
+                    <StackLayout>
                         <Label Text="FullName"/>
                         <Entry x:Name="entry_fullname" Text="{Binding Player.FullName, Mode=TwoWay}"
                                Placeholder="fullname"   TextChanged="DataChanged_Handler"/>
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Text="FirstTimePlayer"/>
-                        <Picker x:Name="picker_firsttimeplayer" Title="firsttimeplayer" TextColor="{StaticResource Primary}" 
-                                SelectedItem="{ Binding Player.FirstTimePlayer }"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="Added"/>

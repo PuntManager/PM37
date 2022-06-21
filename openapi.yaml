@@ -1010,9 +1010,6 @@ components:
           x-skaffolder-id-attr: 62afb019c97c70218d657c24
           x-skaffolder-type: Boolean
           x-skaffolder-required: true
-          x-skaffolder-enumeration:
-            - False
-            - True
         FullName:
           type: string
           x-skaffolder-id-attr: 62afb019c97c70218d657c21
