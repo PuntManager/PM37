@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PuntManager.Views"
+             x:Class="PuntManager.Views.GameEdit"
+             Title="Game">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Frame AbsoluteLayout.LayoutBounds="1, 1, 1, 1" AbsoluteLayout.LayoutFlags="All" Margin="15" VerticalOptions="StartAndExpand">
+                <StackLayout Spacing="15">
+                    <StackLayout.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="Label">
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="FontAttributes" Value="Bold"/>
+                                <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
+                            </Style>
+                            <Style TargetType="Entry">
+                                <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+                                <Setter Property="IsSpellCheckEnabled" Value="False"/>
+                                <Setter Property="Keyboard" Value="Text"/>
+                            </Style>
+                            <Style TargetType="StackLayout">
+                                <Setter Property="Spacing" Value="5"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </StackLayout.Resources>
+                    <StackLayout>
+                        <Label Text="TableList"/>
+                        <Entry x:Name="entry_tablelist" Text="{Binding Game.TableList, Mode=TwoWay}"
+                               Placeholder="tablelist"   TextChanged="DataChanged_Handler"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Status"/>
+                        <Picker x:Name="picker_status" Title="status" TextColor="{StaticResource Primary}" 
+                                SelectedItem="{ Binding Game.Status }"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Table"/>
+                        <Picker x:Name="picker_gametables" Title="gametables" ItemsSource="{Binding TableList}" TextColor="{StaticResource Primary}"
+                                SelectedItem="{ Binding GameTables }" ItemDisplayBinding="{Binding QualifiedName}"/>
+                    </StackLayout>
+                    <Button x:Name="button_save" Text="Save" Clicked="SaveGame_Handler" IsEnabled="false"/>
+                </StackLayout>
+            </Frame>
+            <local:LoadingView x:Name="loading_view" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1, 1, 1, 1"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
