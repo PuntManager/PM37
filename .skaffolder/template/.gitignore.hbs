@@ -1,8 +1,14 @@
 **** PROPERTIES SKAFFOLDER ****
 {
     "forEachObj": "oneTime",
+    "overwrite": false,
     "_partials": []
 }
 **** END PROPERTIES SKAFFOLDER ****
-# Create image based on the official Skaffolder ReactNative image from dockerhub
-FROM skaffolder/reactnative-base
+node_modules
+.expo/*
+yarn-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision

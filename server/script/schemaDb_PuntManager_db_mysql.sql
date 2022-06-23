@@ -69,7 +69,10 @@ CREATE TABLE IF NOT EXISTS `game` (
 --
 
 CREATE TABLE IF NOT EXISTS `game` (
-	`Status` numeric  NOT NULL,
+	`BuyInAmount` int ,
+	`Started` date  NOT NULL,
+	`Status` int  NOT NULL,
+	`Stopped` date ,
 	`TableList` varchar(30) ,
 	
 	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
@@ -86,6 +89,21 @@ CREATE TABLE IF NOT EXISTS `player` (
 	`CasinoPlayerID` varchar(130) ,
 	`FirstTimePlayer` bool  NOT NULL,
 	`FullName` varchar(130)  NOT NULL,
+	`PlayerWallet` varchar(30) ,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
+-- Struttura della tabella `playerwallet`
+--
+
+CREATE TABLE IF NOT EXISTS `playerwallet` (
+	`PlayerActive` bool ,
+	`PlayerWallet` int ,
+	`PlayerWinnings` int ,
 	
 	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
 
@@ -98,6 +116,8 @@ CREATE TABLE IF NOT EXISTS `player` (
 
 CREATE TABLE IF NOT EXISTS `table` (
 	`PlayersList` varchar(30)  NOT NULL,
+	`TablePool` int ,
+	`TablePot` int ,
 	
 	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
 

@@ -125,8 +125,14 @@ paths:
             schema:
               type: object
               properties:
+                BuyInAmount:
+                  type: integer
+                Started:
+                  type: integer
                 Status:
-                  type: number
+                  type: integer
+                Stopped:
+                  type: integer
                 TableList:
                   type: object
     get:
@@ -389,6 +395,8 @@ paths:
                   type: boolean
                 FullName:
                   type: string
+                PlayerWallet:
+                  type: object
     get:
       x-skaffolder-id: 62afb193c97c70218d657c44
       x-skaffolder-name: list
@@ -584,6 +592,10 @@ paths:
               properties:
                 PlayersList:
                   type: object
+                TablePool:
+                  type: integer
+                TablePot:
+                  type: integer
     get:
       x-skaffolder-id: 62afb178c97c70218d657c36
       x-skaffolder-name: list
@@ -964,16 +976,24 @@ components:
         _id:
           type: string
           x-skaffolder-required: true
-        Status:
-          type: number
-          x-skaffolder-id-attr: 62afaf36c97c70218d657c1a
-          x-skaffolder-type: Number
+        BuyInAmount:
+          type: integer
+          x-skaffolder-id-attr: 62b481b4c97c70218d6582c5
+          x-skaffolder-type: Integer
+        Started:
+          type: integer
+          x-skaffolder-id-attr: 62b481b4c97c70218d6582c3
+          x-skaffolder-type: Date
           x-skaffolder-required: true
-          x-skaffolder-enumeration:
-            - Broken
-            - Ended
-            - Paused
-            - Started
+        Status:
+          type: integer
+          x-skaffolder-id-attr: 62afaf36c97c70218d657c1a
+          x-skaffolder-type: Integer
+          x-skaffolder-required: true
+        Stopped:
+          type: integer
+          x-skaffolder-id-attr: 62b481b4c97c70218d6582c4
+          x-skaffolder-type: Date
         TableList:
           type: object
           x-skaffolder-id-attr: 62b0b27ec97c70218d657dea
@@ -986,6 +1006,7 @@ components:
           x-skaffolder-ent2: 62afb099c97c70218d657c2a
       required:
         - _id
+        - Started
         - Status
     Player:
       x-skaffolder-id: 62afb019c97c70218d657c27
@@ -1015,12 +1036,40 @@ components:
           x-skaffolder-id-attr: 62afb019c97c70218d657c21
           x-skaffolder-type: String
           x-skaffolder-required: true
+        PlayerWallet:
+          type: object
+          x-skaffolder-id-attr: 62b4815fc97c70218d6582bf
+          x-skaffolder-type: Custom
       x-skaffolder-relations: 
       required:
         - _id
         - Added
         - FirstTimePlayer
         - FullName
+    PlayerWallet:
+      x-skaffolder-id: 62b48061c97c70218d6582bd
+      x-skaffolder-id-db: 62af4999c97c70218d657b68
+      x-skaffolder-id-entity: 62b48061c97c70218d6582b9
+      x-skaffolder-url: /playerwallet
+      properties:
+        _id:
+          type: string
+          x-skaffolder-required: true
+        PlayerActive:
+          type: boolean
+          x-skaffolder-id-attr: 62b48061c97c70218d6582bc
+          x-skaffolder-type: Boolean
+        PlayerWallet:
+          type: integer
+          x-skaffolder-id-attr: 62b48061c97c70218d6582ba
+          x-skaffolder-type: Integer
+        PlayerWinnings:
+          type: integer
+          x-skaffolder-id-attr: 62b48061c97c70218d6582bb
+          x-skaffolder-type: Integer
+      x-skaffolder-relations: 
+      required:
+        - _id
     Table:
       x-skaffolder-id: 62afb099c97c70218d657c2d
       x-skaffolder-id-db: 62af4999c97c70218d657b68
@@ -1035,6 +1084,14 @@ components:
           x-skaffolder-id-attr: 62afb099c97c70218d657c2b
           x-skaffolder-type: Custom
           x-skaffolder-required: true
+        TablePool:
+          type: integer
+          x-skaffolder-id-attr: 62b47ef8c97c70218d6582b7
+          x-skaffolder-type: Integer
+        TablePot:
+          type: integer
+          x-skaffolder-id-attr: 62b47ef8c97c70218d6582b6
+          x-skaffolder-type: Integer
       x-skaffolder-relations:
         TablePlayer:
           x-skaffolder-id: 62afb099c97c70218d657c2c

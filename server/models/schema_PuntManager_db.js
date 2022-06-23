@@ -30,9 +30,22 @@ export default init => {
         autoIncrement: true
       },
       
-      Status: {
-        type: Sequelize.FLOAT, 
+      BuyInAmount: {
+        type: Sequelize.INTEGER
+      },
+      
+      Started: {
+        type: Sequelize.DATE, 
         allowNull: false
+      },
+      
+      Status: {
+        type: Sequelize.INTEGER, 
+        allowNull: false
+      },
+      
+      Stopped: {
+        type: Sequelize.DATE
       },
       
       TableList: {
@@ -91,6 +104,10 @@ export default init => {
         allowNull: false
       },
       
+      PlayerWallet: {
+        type: Sequelize.STRING
+      },
+      
       //RELATIONS
         
       
@@ -113,6 +130,43 @@ export default init => {
 
     /**
       * ------------------------------------
+      * PlayerWallet
+      * ------------------------------------
+      */
+    class PlayerWallet extends Sequelize.Model{}
+    PlayerWallet.init({
+      _id: { 
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      
+      PlayerActive: {
+        type: Sequelize.BOOLEAN
+      },
+      
+      PlayerWallet: {
+        type: Sequelize.INTEGER
+      },
+      
+      PlayerWinnings: {
+        type: Sequelize.INTEGER
+      },
+      
+      //RELATIONS
+      
+      
+      //EXTERNAL RELATIONS
+      /*
+      */
+    },
+      { sequelize, tableName: "playerwallet", timestamps: false }
+    );
+
+
+
+    /**
+      * ------------------------------------
       * Table
       * ------------------------------------
       */
@@ -127,6 +181,14 @@ export default init => {
       PlayersList: {
         type: Sequelize.STRING, 
         allowNull: false
+      },
+      
+      TablePool: {
+        type: Sequelize.INTEGER
+      },
+      
+      TablePot: {
+        type: Sequelize.INTEGER
       },
       
       //RELATIONS
@@ -209,6 +271,7 @@ export default init => {
       * ------------------------------------
       */
 
+    
     
     
     

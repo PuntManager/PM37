@@ -29,6 +29,7 @@ import Database_PuntManager_db from "./Database_PuntManager_db.js";
 // Controllers
 import GameController from "../controllers/PuntManager_db/GameController";
 import PlayerController from "../controllers/PuntManager_db/PlayerController";
+import PlayerWalletController from "../controllers/PuntManager_db/PlayerWalletController";
 import TableController from "../controllers/PuntManager_db/TableController";
 import UserController from "../controllers/PuntManager_db/UserController";
 
@@ -110,6 +111,7 @@ class Server {
     // Start Init Controllers
 		GameController.init(router);
 		PlayerController.init(router);
+		PlayerWalletController.init(router);
 		TableController.init(router);
 		UserController.init(router);
 		 // End Init Controllers
